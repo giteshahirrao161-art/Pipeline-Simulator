@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DevOps Pipeline Simulator</title>
+
+    <!-- Minimal SEO -->
+    <meta name="description" content="Simple, GitHub-style dashboard for designing and running CI/CD pipelines." />
+
+    <!-- System font stack like github.com -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Styles (use the GitHub-like theme you just installed) -->
+    <link rel="stylesheet" href="/src/styles.css" />
+    
+  </head>
+  <body>
+    <!-- ============================== Top dark header ============================== -->
+    <header class="brand-strip">
+      <div class="brand-inner">
+        <a class="brand-logo" href="#top" aria-label="Home">
+          <span class="brand-text">DevOps Pipeline <em>Simulator</em></span>
+        </a>
+
+        <div class="brand-actions">
+          <a class="btn btn-ghost" href="#" title="Docs">Docs</a>
+          <a class="btn btn-ghost" href="#" title="GitHub">Star</a>
+
+          <!-- Profile dropdown (no JS needed) -->
+          <details class="menu">
+            <summary class="btn btn-soft">
+              <img class="avatar" src="https://i.pravatar.cc/24?img=11" alt="" />
+              <span class="hide-sm">Account</span>
+              <svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M5.5 7.5L10 12l4.5-4.5z"/></svg>
+            </summary>
+            <nav class="dropdown">
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <hr class="dropdown-sep" />
+              <button class="dropdown-item danger" type="button">Sign out</button>
+            </nav>
+          </details>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================== Subnav (sticky) ============================== -->
+    <nav class="nav-shell" aria-label="Primary">
+      <div class="nav-inner">
+        <ul class="tabs">
+          <li><a class="tab active" href="/">Dashboard</a></li>
+          <li><a class="tab" href="/pipelines">Pipelines</a></li>
+          <li><a class="tab" href="/runs">Runs</a></li>
+          <li><a class="tab" href="/settings">Settings</a></li>
+          <li>
+            <details class="tab-menu">
+              <summary class="tab">More <svg class="chev" viewBox="0 0 20 20"><path fill="currentColor" d="M5.5 7.5L10 12l4.5-4.5z"/></svg></summary>
+              <div class="tab-dropdown">
+                <a href="#how">How it works</a>
+                <a href="#faq">FAQ</a>
+              </div>
+            </details>
+          </li>
+        </ul>
+
+        <div class="nav-actions">
+          <a class="btn" href="#pipelines">Open Builder</a>
+          <a class="btn btn-primary" href="#pipelines">Demo Pipeline</a>
+          <a class="btn btn-soft" href="#runs">Refresh</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================== Hero ============================== -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <h1 class="hero-title">Ship faster with a visual CI/CD dashboard</h1>
+        <p class="hero-text">
+          Design stages & jobs, run pipelines, and track runs — all in a clean, GitHub-style interface.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#pipelines">Create pipeline</a>
+          <a class="btn btn-lg" href="#pipelines">Import YAML</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">12</div><div class="stat-label">Pipelines</div></div>
+          <div class="stat"><div class="stat-num">84</div><div class="stat-label">Runs</div></div>
+          <div class="stat"><div class="stat-num success">96%</div><div class="stat-label">Success rate</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== App container ============================== -->
+    <main class="container">
+      <!-- Lightweight loading shell (hidden once React fires app:ready) -->
+      <section class="card" id="app-loading" aria-live="polite">
+        <div class="card-head">
+          <h2 class="card-title">Loading…</h2>
+          <span class="pill">initializing</span>
+        </div>
+        <div class="skeletons">
+          <div class="sk-row"><div class="sk"></div></div>
+          <div class="sk-row"><div class="sk w-60"></div></div>
+          <div class="sk-row"><div class="sk w-80"></div></div>
+        </div>
+      </section>
+
+      <!-- React mounts here -->
+      <div id="root" aria-busy="true" aria-describedby="app-loading"></div>
+
+      <!-- Section anchors for in-page navigation -->
+      <div id="pipelines"></div>
+      <div id="runs"></div>
+      <div id="how"></div>
+      <div id="faq"></div>
+    </main>
+
+    <!-- ============================== Footer ============================== -->
+    <footer class="site-foot" role="contentinfo">
+      <div class="foot-inner">
+        <p>© <span id="y"></span> DevOps Pipeline Simulator</p>
+        <ul class="foot-links">
+          <li><a href="#how">Docs</a></li>
+          <li><a href="#faq">Security</a></li>
+          <li><a href="#runs">Status</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Helpers: year + hide loader after React is ready -->
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      window.addEventListener("app:ready", () => {
+        const s = document.getElementById("app-loading");
+        const r = document.getElementById("root");
+        if (s) s.style.display = "none";
+        if (r) r.setAttribute("aria-busy","false");
+      });
+    </script>
+
+    <!-- Vite/React entry -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
