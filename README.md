@@ -1,4 +1,5 @@
 # Pipeline-Simulator
+Switch to Code preview
 devops-pipeline-simulator/
 │
 ├── server/                     # Backend (Node.js + Express + MongoDB + WebSockets)
