@@ -5,5 +5,9 @@ import "./styles.css";
 
 createRoot(document.getElementById("root")).render(<App />);
 
-// Notify the HTML shell we’re ready (hides skeleton).
+// Notify the HTML shell we’re ready (hides skeleton).                                 
+
+
+                                                                               
 window.dispatchEvent(new Event("app:ready"));
+
