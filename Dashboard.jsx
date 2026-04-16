@@ -11,7 +11,7 @@ import Faq from "../components/Faq.jsx";
 import { motion } from "framer-motion";
 import { Rocket, PlusCircle, RefreshCw, BarChart, Layers, Activity } from "lucide-react";
 
-const fadeUp = { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 } };
+const fadeUp = { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 } };  
 
 export default function Dashboard(){
   const [pipes, setPipes] = useState([]);
