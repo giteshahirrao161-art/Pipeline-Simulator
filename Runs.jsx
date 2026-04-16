@@ -14,7 +14,7 @@ export default function RunsPage() {
 
   if (runs == null) {
     return (
-      <div className="card" style={{ padding: 16 }}>
+      <div className="card" style={{ padding: 16 }}>   
         <div className="skeletons">
           <div className="sk"></div>
           <div className="sk w-60"></div>
