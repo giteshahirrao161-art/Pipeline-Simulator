@@ -12,7 +12,7 @@ export default function PipelinesPage() {
   }
   useEffect(() => { refresh(); }, []);
 
-  if (pipes == null) {
+  if (pipes == null) { 
     return (
       <div className="card" style={{ padding: 16 }}>
         <div className="skeletons">
