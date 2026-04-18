@@ -14,7 +14,7 @@ function SettingsPage() {
       </p>
     </div>
   );
-}
+}. 
 
 export default function App() {
   return (
