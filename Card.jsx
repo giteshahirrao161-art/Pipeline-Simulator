@@ -6,4 +6,4 @@ export default function Card({ className = "", ...props }) {
       {...props}
     />
   );
-}
+} 
