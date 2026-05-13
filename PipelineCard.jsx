@@ -1,7 +1,7 @@
 import React from "react";
 import { Play, Clock, GitBranch, Settings2 } from "lucide-react";
 
-function fmtDate(ts) {
+function fmtDate(ts) { 
   if (!ts) return "—";
   try { return new Date(ts).toLocaleString(); } catch { return "—"; }
 }
